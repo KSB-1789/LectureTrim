@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# PyInstaller
+build/
+dist/
+
+# Local app data and temporary verification files
+.lecturetrim/
+.vadtest/
+.verify/
+.timing/
+
+# Logs and OS/editor files
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

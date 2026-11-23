@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LectureTrim removes silent gaps from lecture videos while keeping speech and board writing.">
+  <title>LectureTrim</title>
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="lt-shell">
+    <header class="lt-head">
+      <span class="lt-wordmark">LectureTrim</span>
+      <span class="lt-file" id="fileName"></span>
+    </header>
+
+    <main>
+      <section class="lt-drop" id="dropZone">
+        <h1 class="lt-hero">Drop a lecture video.</h1>
+        <p class="lt-lede">LectureTrim removes the silent gaps and keeps the parts where your teacher speaks or writes on the board. Everything stays on this machine.</p>
+        <button class="lt-btn lt-btn--primary" id="chooseBtn" type="button">Choose a video</button>
+      </section>
+
+      <section class="lt-panel" id="loaded" hidden>
+        <h2 class="lt-title" id="loadedName"></h2>
+        <div class="lt-facts">
+          <div><span class="lt-fact-label">Duration</span><span class="lt-fact-value" id="factDuration">0:00</span></div>
+          <div><span class="lt-fact-label">Resolution</span><span class="lt-fact-value" id="factResolution">Unknown</span></div>
+          <div><span class="lt-fact-label">Audio</span><span class="lt-fact-value" id="factAudio">Unknown</span></div>
+        </div>
+        <button class="lt-btn lt-btn--primary" id="analyzeBtn" type="button">Analyze lecture</button>
+      </section>
+
+      <section class="lt-panel" id="results" hidden>
+        <div class="lt-results-head">
+          <div>
+            <h2 class="lt-title" id="resultTitle">Ready to review</h2>
+          </div>
+          <div class="lt-saved" id="savedBadge"></div>
+        </div>
+        <div class="lt-timeline" id="timeline"></div>
+        <div class="lt-timeline-legend">
+          <span><span class="lt-legend-swatch lt-legend-swatch--keep"></span>Kept</span>
+          <span><span class="lt-legend-swatch lt-legend-swatch--cut"></span>Removed</span>
+        </div>
+        <p class="lt-note" id="resultNote"></p>
+        <div class="lt-actions">
+          <button class="lt-btn lt-btn--primary" id="exportBtn" type="button">Save &amp; export MP4</button>
+        </div>
+        <p class="lt-note">Choose a folder and file name. The app renders the finished MP4 straight to that location.</p>
+      </section>
+
+      <section class="lt-panel lt-progress" id="progressPanel" hidden aria-live="polite">
+        <div class="lt-progress-head">
+          <span class="lt-section-label" id="progressStage">Working</span>
+          <span class="lt-fact-value" id="progressPct">0%</span>
+        </div>
+        <div class="lt-progress-track"><div class="lt-progress-fill" id="progressFill"></div></div>
+        <p class="lt-note" id="progressMessage"></p>
+      </section>
+
+      <section class="lt-panel lt-player" id="exportPanel" hidden>
+        <p class="lt-section-label">Final video · ready to play</p>
+        <video id="exportVideo" poster="/poster.svg" controls preload="metadata"></video>
+        <p class="lt-note" id="qualityNote"></p>
+        <p class="lt-note" id="savedPath"></p>
+        <div class="lt-actions">
+          <button class="lt-btn" id="againBtn" type="button">Analyze another video</button>
+        </div>
+      </section>
+
+      <section class="lt-panel lt-error" id="errorPanel" hidden>
+        <p class="lt-section-label">Something went wrong</p>
+        <p class="lt-note" id="errorMessage"></p>
+        <button class="lt-btn" id="retryBtn" type="button">Try again</button>
+      </section>
+    </main>
+
+    <footer class="lt-foot">Runs locally. No upload, no account.</footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
