@@ -218,3 +218,7 @@ Run `install_windows.bat` again after building, then give Windows a few seconds 
 
 **A codec cannot be opened.**
 The packaged build uses the FFmpeg binaries available at build time. If a source run rejects a file, install a full FFmpeg build (for example, Gyan's `full_build`) and rebuild.
+
+## License
+
+MIT © 2026 Karanveer Singh. See [LICENSE](LICENSE).
